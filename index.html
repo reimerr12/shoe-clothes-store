@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>website store</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+</head>
+<body class="bg-white ">
+
+    <!-- Navbar -->
+
+    <header class="px-6 py-4 flex sticky left-0 top-0 bg-white z-10 items-center justify-between border-b-2 border-gray-800">
+
+        <div class="flex items-center space-x-6">
+            <h1 class="font-bold text-xl md:text-3xl font-roboto">LOGO</h1>
+            <nav class="hidden lg:flex space-x-6">
+                <a href="#new" class=" capitalize font-semibold text-gray-600 hover:text-gray-950 hover:underline duration-200 ease-in">new & featured</a>
+
+                <a href="#about" class=" capitalize font-semibold text-gray-600 hover:text-gray-950 hover:underline duration-200 ease-in">about</a>
+
+                <a href="#products" class=" capitalize font-semibold text-gray-600 hover:text-gray-950 hover:underline duration-200 ease-in">products</a>
+
+                <a href="#contact" class=" capitalize font-semibold text-gray-600 hover:text-gray-950 hover:underline duration-200 ease-in">contact</a>
+
+                <a href="#gallery" class=" capitalize font-semibold text-gray-600 hover:text-gray-950 hover:underline duration-200 ease-in">gallery</a>
+            </nav>
+        </div>
+
+        <div class="flex items-center space-x-6">
+            <input class="block px-3 py-2 border rounded-full w-full max-w-xs focus:outline-none active:border-gray-800" type="text" placeholder="search">  
+
+            <button class="lg:hidden rounded-full bg-gray-900 text-white px-3 py-2 hover:scale-105 duration-200 " onclick="ToggleMenu()"><i class="fa-solid fa-bars"></i></button>           
+
+            <button class="rounded-full bg-gray-900 text-white px-3 py-2 hover:scale-105 duration-200 " ><i class="fa-solid fa-heart"></i></button>
+
+            <button class="rounded-full bg-gray-900 text-white px-3 py-2 hover:scale-105 duration-200 " onclick="ToggleCart()"><i class="fa-solid fa-cart-shopping"></i></button>
+        </div>
+    </header>
+
+
+    <!-- Mobile-screen -->
+
+    <div class="fixed inset-0 z-50 items-center justify-center bg-black bg-opacity-50 hidden" id="mobileMenu">
+        <div class="bg-white w-1/2 h-full shadow-lg p-4">
+            <button class="text-gray-900 text-right w-full" onclick="ToggleMenu()"><i class="fa-solid fa-xmark"></i></button>
+            <ul class="mt-8 space-y-6 text-lg font-medium">
+
+                <li><h1 class="font-bold text-xl md:text-3xl font-roboto">LOGO</h1></li>
+
+                <li><a href="#new" class=" capitalize font-semibold text-gray-600 hover:text-gray-950 hover:underline duration-200 ease-in"><i class="pr-2 fa-solid fa-cart-shopping"></i>new & featured</a></li>
+
+                <li><a href="#about" class=" capitalize font-semibold text-gray-600 hover:text-gray-950 hover:underline duration-200 ease-in"><i class="pr-2 fa-solid fa-circle-info"></i>about</a></li>
+
+                <li><a href="#products" class=" capitalize font-semibold text-gray-600 hover:text-gray-950 hover:underline duration-200 ease-in"><i class="pr-2 fa-solid fa-bag-shopping"></i>product</a></li>
+
+                <li><a href="#contact" class=" capitalize font-semibold text-gray-600 hover:text-gray-950 hover:underline duration-200 ease-in"><i class="pr-2 fa-solid fa-right-to-bracket"></i>contact</a></li>
+
+                <li><a href="#gallery" class=" capitalize font-semibold text-gray-600 hover:text-gray-950 hover:underline duration-200 ease-in"><i class="pr-2 fa-solid fa-image"></i>gallery</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- cart-screen-toggle -->
+
+    <div class="fixed inset-y-0 right-0 z-50 w-3/4 md:w-1/4 bg-white shadow-lg p-4 hidden overflow-y-scroll" id="cart-sidebar">
+        <button class="text-gray-900 text-left w-full" onclick="ToggleCart()"><i class="fa-solid fa-xmark"></i></button>
+        <h2 class="text-2xl font-bold mb-4">Your Cart</h2>
+        <ul class="space-y-4 overflow-y-auto" id="cart-items">
+
+        </ul>
+        <div class="mt-4 text-lg font-semibold capitalize"> total: $<span id="cart-total">0.00</span></div>
+        <button class="rounded-full bg-gray-900 text-white px-2 py-1 capitalize hover:scale-105 duration-200 ">check out</button>
+        <button class="rounded-full bg-gray-900 text-white px-2 py-1 capitalize hover:scale-105 duration-200 " onclick="ToggleCart()">close</button>
+    </div>
+
+    <main>
+
+        <!-- HOME-SECTION-START -->
+        <section>
+            <div class="grid grid-cols-1 lg:grid-cols-2">
+                <div class="relative">
+                    <img src="images/banner5.jpg" alt="" class="h-auto w-auto object-cover">
+                </div>
+                <div>
+                    <img src="images/banner6.jpg" alt="" class="h-auto w-auto object-cover">
+                </div>
+            </div>
+            <div class="mt-4 pt-4 max-w-6xl text-center mx-auto">
+                <h1 class="mt-2 pt-2 text-3xl lg:text-7xl font-bold">WIN FROM THE START</h1>
+                <p class="mt-2 pt-2 capitalize font-semibold">everything you need for the biggest day of the season</p>
+                <button class="mt-4 px-4 py-2 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100"><a href="products">shop</a></button>
+            </div>
+        </section>
+
+        <!-- HOME-SECTION-END -->
+
+        
+
+        <!-- PRODUCT-SECTION-VARIETY-START -->
+
+
+        <section id="new" class="mt-4 pt-4 ">
+            <div class="grid grid-cols-2">
+                <div class="relative">
+                    <img src="images/banner1.jpg" alt="" class="h-full w-full object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-30 flex flex-col items-start justify-end text-left p-4">
+                        <h2 class="text-xl text-white font-semibold">quality fabric</h2>
+                        <p class="text-3xl font-bold capitalize text-white">synthetic polymer best for use</p>
+                        <button class="mt-4 px-4 py-2 bg-white text-black capitalize rounded-3xl font-bold hover:opacity-50 duration-100"><a href="#products">shop</a></button>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <img src="images/banner2.jpg" alt="" class="h-full w-full object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-30 flex flex-col items-start justify-end text-left p-4">
+                        <h2 class="text-xl text-white font-semibold">iron clad gears</h2>
+                        <p class="text-3xl font-bold capitalize text-white">metallic gear for your gains</p>
+                        <button class="mt-4 px-4 py-2 bg-white text-black capitalize rounded-3xl font-bold hover:opacity-50 duration-100"><a href="#products">shop</a></button>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <img src="images/banner4.jpg" alt="" class="h-full w-full object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-30 flex flex-col items-start justify-end text-left p-4">
+                        <h2 class="text-xl text-white font-semibold">closeup comfort</h2>
+                        <p class="text-3xl font-bold capitalize text-white">compatibility at its finest</p>
+                        <button class="mt-4 px-4 py-2 bg-white text-black capitalize rounded-3xl font-bold hover:opacity-50 duration-100"><a href="#products">shop</a></button>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <img src="images/banner3.jpg" alt="" class="h-full w-full object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-30 flex flex-col items-start justify-end text-left p-4">
+                        <h2 class="text-xl text-white font-semibold">stylish movement</h2>
+                        <p class="text-3xl font-bold capitalize text-white">vast arrays of collection</p>
+                        <button class="mt-4 px-4 py-2 bg-white text-black capitalize rounded-3xl font-bold hover:opacity-50 duration-100"><a href="#products">shop</a></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUCT-SECTION-VARIETY-END -->
+
+        <!-- ABOUT-SECTION-START -->
+
+        <section class="bg-white py-12" id="about">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h1 class="text-3xl lg:text-5xl font-bold text-gray-900">ABOUT US</h1>
+                    <div class="mt-2">
+                        <div class="inline-block w-24 h-1 bg-black"></div>
+                    </div>
+                </div>
+                <div class="flex flex-col lg:flex-row mt-12">
+                    <div class="lg:w-1/2 lg:pr-8 text-center lg:text-left">
+                        <h2 class="text-3xl font-bold text-black mb-4 capitalize">We provide the best at everything</h2>
+                        <p class="text-gray-600 mb-4">Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica. Dolor in hendrerit in vulputate velit esse molestie consequat.</p>
+                        <p class="text-gray-600">Mirum est notare quam littera gothica. Dolor in hendrerit in vulputate velit esse molestie consequat. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Dolor in hendrerit in vulputate velit esse molestie consequat.</p>
+                    </div>
+                    <div class="lg:w-1/2 flex justify-center lg:justify-end mt-8 lg:mt-0">
+                        <img class="w-full max-w-sm object-cover rounded-lg" src="images/hface2.jpg" alt="Designer Image">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+                    <div class="text-center">
+                        <div class="text-4xl text-gray-900 mb-2">
+                            <i class="fa-solid fa-palette"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900">Unlimited Color Variants</h3>
+                        <p class="text-gray-600 mt-2">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Vel illum dolore eu feugiat nulla facilisis.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl text-gray-900 mb-2">
+                            <i class="fa-solid fa-shirt"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900">Highest Quality</h3>
+                        <p class="text-gray-600 mt-2">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Vel illum dolore eu feugiat nulla facilisis.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl text-gray-900 mb-2">
+                            <i class="fa-brands fa-figma"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900">Clean  Design</h3>
+                        <p class="text-gray-600 mt-2">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Vel illum dolore eu feugiat nulla facilisis.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl text-gray-900 mb-2">
+                            <i class="fa-brands fa-elementor"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900">Tons of  Elements</h3>
+                        <p class="text-gray-600 mt-2">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Vel illum dolore eu feugiat nulla facilisis.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT-SECTION-START -->
+
+        <!-- PRODUCT-SECTION-START -->
+
+        <section class="mt-4 py-4" id="products">
+            <div class="mx-auto  my-8">
+                <h1 class="font-bold text-3xl lg:text-5xl text-center">SHOP BY CLASSICS</h1>
+                <div  class="relative overflow-hidden mt-6">
+                    <!-- HOODIES -->
+                    <h2 class="font-bold text-3xl lg:text-4xl ml-2">Hoodies</h2>
+                    <div id="slider1" class="flex transition-transform duration-300">
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/hoodie1.jpg" alt="" class="w-full h-auto rounded-xl">
+                            <p class=" font-bold mt-2 capitalize text-xl">black hoodie 1</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="black hoodie 1"
+                            data-price="15.99"
+                            data-image="images/hoodie1.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/hoodie12.jpg" alt="" class="w-full h-auto rounded-xl">
+                            <p class=" font-bold mt-2 capitalize text-xl">black hoodie 2</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="black hoodie 2"
+                            data-price="15.99"
+                            data-image="images/hoodie12.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/hoodie2.jpg" alt="" class="w-full h-auto rounded-xl">
+                            <p class=" font-bold mt-2 capitalize text-xl">black hoodie 3</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100"data-name="black hoodie 3"
+                            data-price="15.99"
+                            data-image="images/hoodie2.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/hoodie11.jpg" alt="" class="w-full h-auto rounded-xl">
+                            <p class=" font-bold mt-2 capitalize text-xl">black hoodie 4</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="black hoodie 4"
+                            data-price="15.99"
+                            data-image="images/hoodie11.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/hoodie3.jpg" alt="" class="w-full h-auto rounded-xl">
+                            <p class=" font-bold mt-2 capitalize text-xl">black hoodie 5</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="shop text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="black hoodie 5"
+                            data-price="15.99"
+                            data-image="images/hoodie3.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/hoodie10.jpg" alt="" class="w-full h-auto rounded-xl">
+                            <p class=" font-bold mt-2 capitalize text-xl">black hoodie 6</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="black hoodie 6"
+                            data-price="15.99"
+                            data-image="images/hoodie10.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/hoodie4.jpg" alt="" class="w-full h-auto rounded-xl">
+                            <p class=" font-bold mt-2 capitalize text-xl">black hoodie 7</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class=" shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="black hoodie 7"
+                            data-price="15.99"
+                            data-image="images/hoodie4.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/hface4.jpg" alt="" class="w-full h-auto rounded-xl">
+                            <p class=" font-bold mt-2 capitalize text-xl">black hoodie 8</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class=" text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="black hoodie 8"
+                            data-price="15.99"
+                            data-image="images/hface4.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/hoodie5.jpg" alt="" class="w-full h-auto rounded-xl">
+                            <p class=" font-bold mt-2 capitalize text-xl">black hoodie 9</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="black hoodie 9"
+                            data-price="15.99"
+                            data-image="images/hoodie5.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/hface1.jpg" alt="" class="w-full h-auto rounded-xl">
+                            <p class=" font-bold mt-2 capitalize text-xl">black hoodie 10</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class=" text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="black hoodie 10"
+                            data-price="15.99"
+                            data-image="images/hface1.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/hoodie6.jpg" alt="" class="w-full h-auto rounded-xl">
+                            <p class=" font-bold mt-2 capitalize text-xl">black hoodie 11</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="black hoodie 11"
+                            data-price="15.99"
+                            data-image="images/hoodie6.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/hface3.jpg" alt="" class="w-full h-auto rounded-xl">
+                            <p class=" font-bold mt-2 capitalize text-xl">black hoodie 12</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="black hoodie 12"
+                            data-price="15.99"
+                            data-image="images/hface3.jpg">shop</button>
+                        </div>
+                    </div>
+                    <button id="prev1" class="ml-8 absolute top-1/2 transform -translate-y-1/2 bg-white py-2 px-4 rounded-full text-black shadow-md focus:outline-none"><i class="fa-solid fa-arrow-left"></i></button>
+
+                    <button id="next1" class="mr-8 absolute top-1/2 right-0 transform -translate-y-1/2 bg-white px-4 py-2 rounded-full text-black shadow-md focus:outline-none"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+
+                <!-- HOODIES -->
+
+                <!-- JOGGERS&LEGGINGS -->
+
+                <div class="relative overflow-hidden mt-6">                   
+                    <h2 class="text-3xl lg:text-4xl font-bold pl-2 capitalize mb-2">joggers & leggings</h2>
+                    <div id="slider2" class="flex transition-transform duration-300">
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/bjoggers1.jpg" alt="" class="h-auto w-full rounded-xl">
+                            <p class="capitalize text-xl font-bold mt-2">joggers 1</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="joggers 1"
+                            data-price="15.99"
+                            data-image="images/bjoggers1.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/bljoggers1.jpg" alt="" class="h-auto w-full rounded-xl">
+                            <p class="capitalize text-xl font-bold mt-2">joggers 2</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="joggers 2"
+                            data-price="15.99"
+                            data-image="images/bljoggers1.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/gjoggers.jpg" alt="" class="h-auto w-full rounded-xl">
+                            <p class="capitalize text-xl font-bold mt-2">joggers 3</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="joggers 3"
+                            data-price="15.99"
+                            data-image="images/gjoggers.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/bjoggers2.jpg" alt="" class="h-auto w-full rounded-xl">
+                            <p class="capitalize text-xl font-bold mt-2">jogger 4</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="joggers 4"
+                            data-price="15.99"
+                            data-image="images/bjoggers2.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/bljoggers2.jpg" alt="" class="h-auto w-full rounded-xl">
+                            <p class="capitalize text-xl font-bold mt-2">joggers 5</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="joggers 5"
+                            data-price="15.99"
+                            data-image="images/bljoggers2.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/gjoggers1.jpg" alt="" class="h-auto w-full rounded-xl">
+                            <p class="capitalize text-xl font-bold mt-2">joggers 6</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="joggers 6"
+                            data-price="15.99"
+                            data-image="images/gjoggers1.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/bljoggers4.jpg" alt="" class="h-auto w-full rounded-xl">
+                            <p class="capitalize text-xl font-bold mt-2">joggers 7</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="joggers 7"
+                            data-price="15.99"
+                            data-image="images/bljoggers4.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/bjoggers5.jpg" alt="" class="h-auto w-full rounded-xl">
+                            <p class="capitalize text-xl font-bold mt-2">joggers 8</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="joggers 8"
+                            data-price="15.99"
+                            data-image="images/bjoggers5.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/gjoggers3.jpg" alt="" class="h-auto w-full rounded-xl">
+                            <p class="capitalize text-xl font-bold mt-2">joggers 9</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="joggers 9"
+                            data-price="15.99"
+                            data-image="images/gjoggers3.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/bjoggers7.jpg" alt="" class="h-auto w-full rounded-xl">
+                            <p class="capitalize text-xl font-bold mt-2">joggers 10</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="joggers 10"
+                            data-price="15.99"
+                            data-image="images/bjoggers7.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/bjoggers8.jpg" alt="" class="h-auto w-full rounded-xl">
+                            <p class="capitalize text-xl font-bold mt-2">joggers 11</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class=" shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="joggers 11"
+                            data-price="15.99"
+                            data-image="images/bjoggers8.jpg">shop</button>
+                        </div>
+                    </div>
+
+                    <button id="prev2" class="ml-8 absolute top-1/2 transform -translate-y-1/2 bg-white text-black px-4 py-2 rounded-full shadow-md focus:outline-none"><i class="fa-solid fa-arrow-left"></i></button>
+
+                    <button id="next2" class="mr-8 absolute top-1/2 transform -translate-y-1/2 right-0 bg-white text-black rounded-full py-2 px-4 shadow-md focus:outline-none"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+
+                <!-- LEGGINGS&JOGGERS-END -->
+
+                <!-- gymgear -->
+
+                <div class="relative overflow-hidden mt-6">
+                    <h2 class="text-3xl lg:text-4xl capitalize font-bold ml-2">Gym & gears</h2>
+                     <div id="slider3" class="flex transition-transform duration-300">
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/gear1.jpg" alt="" class="w-full h-auto object-cover rounded-xl">
+                            <p class="capitalize text-xl font-bold mt-2">gym gear 1</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100"
+                            data-name="gym gear 1"
+                            data-price="15.99"
+                            data-image="images/gear1.jpg"">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/gear1.jpg" alt="" class="w-full h-auto object-cover rounded-xl">
+                            <p class="capitalize text-xl font-bold mt-2">gym gear 2</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100"          data-name="gym gear 2"
+                            data-price="15.99"
+                            data-image="images/gear1.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/gear2.jpg" alt="" class="w-full h-auto object-cover rounded-xl">
+                            <p class="capitalize text-xl font-bold mt-2">gym gear 3</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class=" shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100"
+                            data-name="gym gear 3"
+                            data-price="15.99"
+                            data-image="images/gear2.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/gear3.jpg" alt="" class="w-full h-auto object-cover rounded-xl">
+                            <p class="capitalize text-xl font-bold mt-2">gym gear 4</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="gym gear 4"
+                            data-price="15.99"
+                            data-image="images/gear3.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/gear4.jpg" alt="" class="w-full h-auto object-cover rounded-xl">
+                            <p class="capitalize text-xl font-bold mt-2">gym gear 5</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="gym gear 5"
+                            data-price="15.99"
+                            data-image="images/gear4.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/gear5.jpg" alt="" class="w-full h-auto object-cover rounded-xl">
+                            <p class="capitalize text-xl font-bold mt-2">gym gear 6</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="gym gear 6"
+                            data-price="15.99"
+                            data-image="images/gear5.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/gear1.jpg" alt="" class="w-full h-auto object-cover rounded-xl">
+                            <p class="capitalize text-xl font-bold mt-2">gym gear 7</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="gym gear 7"
+                            data-price="15.99"
+                            data-image="images/gear1.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/gear3.jpg" alt="" class="w-full h-auto object-cover rounded-xl">
+                            <p class="capitalize text-xl font-bold mt-2">gym gear 8</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="gym gear 8"
+                            data-price="15.99"
+                            data-image="images/gear3.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/gear5.jpg" alt="" class="w-full h-auto object-cover rounded-xl">
+                            <p class="capitalize text-xl font-bold mt-2">gym gear 9</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="gym gear 9"
+                            data-price="15.99"
+                            data-image="images/gear5.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/gear1.jpg" alt="" class="w-full h-auto object-cover rounded-xl">
+                            <p class="capitalize text-xl font-bold mt-2">gym gear 10</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="gym gear 10"
+                            data-price="15.99"
+                            data-image="images/gear1.jpg">shop</button>
+                        </div>
+                    </div>
+
+                    <button id="prev3" class="ml-8 absolute top-1/2 transform -translate-y-1/2 rounded-full py-2 px-4 shadow-xl text-black bg-white focus:outline-none"><i class="fa-solid fa-arrow-left"></i></button>
+
+                    <button id="next3" class="mr-8 absolute top-1/2 transform -translate-y-1/2 right-0 rounded-full py-2 px-4 shadow-xl text-black bg-white focus:outline-none"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+
+                <!-- gymgear -->
+
+                <!-- jordans -->
+
+                <div class="relative overflow-hidden mt-6">
+                    <h2 class="text-3xl lg:text-4xl text-black capitalize font-bold ml-2">Jordans 1</h2>
+                    <div id="slider4" class="flex transition-transform duration-300">
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/yellowblackjordans.jpg" alt="" class="h-auto w-full rounded-xl object-cover">
+                            <p class="capitalize text-xl font-bold mt-2">Jordans</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="jordans 1"
+                            data-price="15.99"
+                            data-image="images/yellowblackjordans.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/yellowblackjordans2.jpg" alt="" class="h-auto w-full rounded-xl object-cover">
+                            <p class="capitalize text-xl font-bold mt-2">Jordans 2</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class=" shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="jordans 2"
+                            data-price="15.99"
+                            data-image="images/yellowblackjordans2.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/yellowehite.jpg" alt="" class="h-auto w-full rounded-xl object-cover">
+                            <p class="capitalize text-xl font-bold mt-2">Jordans 3</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="jordans 3"
+                            data-price="15.99"
+                            data-image="images/yellowehite.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/blackgrayjordans.jpg" alt="" class="h-auto w-full rounded-xl object-cover">
+                            <p class="capitalize text-xl font-bold mt-2">Jordans 4</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="jordans 4"
+                            data-price="15.99"
+                            data-image="images/blackgrayjordans.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/blackwhitejordans.jpg" alt="" class="h-auto w-full rounded-xl object-cover">
+                            <p class="capitalize text-xl font-bold mt-2">Jordans 5</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="jordans 5"
+                            data-price="15.99"
+                            data-image="images/blackwhitejordans.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/blackyellow.jpg" alt="" class="h-auto w-full rounded-xl object-cover">
+                            <p class="capitalize text-xl font-bold mt-2">Jordans 6</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="jordans 6"
+                            data-price="15.99"
+                            data-image="images/blackyellow.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/yellowblackjordans.jpg" alt="" class="h-auto w-full rounded-xl object-cover">
+                            <p class="capitalize text-xl font-bold mt-2">Jordans< 7/p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="jordans 7"
+                            data-price="15.99"
+                            data-image="images/yellowblackjordans.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/bluejordans.jpg" alt="" class="h-auto w-full rounded-xl object-cover">
+                            <p class="capitalize text-xl font-bold mt-2">Jordans 8</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="jordans 8"
+                            data-price="15.99"
+                            data-image="images/bluejordans.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/blackblue.jpg" alt="" class="h-auto w-full rounded-xl object-cover">
+                            <p class="capitalize text-xl font-bold mt-2">Jordans 9</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="jordans 8"
+                            data-price="15.99"
+                            data-image="images/blackblue.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/blackgrayjordans.jpg" alt="" class="h-auto w-full rounded-xl object-cover">
+                            <p class="capitalize text-xl font-bold mt-2">Jordans 10</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="jordans 10"
+                            data-price="15.99"
+                            data-image="images/blackgrayjordans.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/bluejordans4.jpg" alt="" class="h-auto w-full rounded-xl object-cover">
+                            <p class="capitalize text-xl font-bold mt-2">Jordans 11</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class=" shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="jordans 11"
+                            data-price="15.99"
+                            data-image="images/bluejordans4.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/redblack.jpg" alt="" class="h-auto w-full rounded-xl object-cover">
+                            <p class="capitalize text-xl font-bold mt-2">Jordans 12</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="jordans 12"
+                            data-price="15.99"
+                            data-image="images/redblack.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/redwhite.jpg" alt="" class="h-auto w-full rounded-xl object-cover">
+                            <p class="capitalize text-xl font-bold mt-2">Jordans 13</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="jordans 13"
+                            data-price="15.99"
+                            data-image="images/redwhite.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/redblackwhite.jpg" alt="" class="h-auto w-full rounded-xl object-cover">
+                            <p class="capitalize text-xl font-bold mt-2">Jordans 14</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="jordans 14"
+                            data-price="15.99"
+                            data-image="images/redblackwhite.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/tealblackjordans.jpg" alt="" class="h-auto w-full rounded-xl object-cover">
+                            <p class="capitalize text-xl font-bold mt-2">Jordans 15</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="jordans 15"
+                            data-price="15.99"
+                            data-image="images/tealblackjordans.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/tealblackjordans2.jpg" alt="" class="h-auto w-full rounded-xl object-cover">
+                            <p class="capitalize text-xl font-bold mt-2">Jordans 16</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="jordans 16"
+                            data-price="15.99"
+                            data-image="images/tealblackjordans2.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/whiteblackjordans.jpg" alt="" class="h-auto w-full rounded-xl object-cover">
+                            <p class="capitalize text-xl font-bold mt-2">Jordans 17</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="jordans 17"
+                            data-price="15.99"
+                            data-image="images/whiteblackjordans.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/whiteblack.jpg" alt="" class="h-auto w-full rounded-xl object-cover">
+                            <p class="capitalize text-xl font-bold mt-2">Jordans 18</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="jordans 18"
+                            data-price="15.99"
+                            data-image="images/whiteblack.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/blackgrayjordans.jpg" alt="" class="h-auto w-full rounded-xl object-cover">
+                            <p class="capitalize text-xl font-bold mt-2">Jordans 19</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="jordans 19"
+                            data-price="15.99"
+                            data-image="images/blackgrayjordans.jpg">shop</button>
+                        </div>
+
+                        <div class="flex-none w-full sm:w-1/5 p-2">
+                            <img src="images/blackblue.jpg" alt="" class="h-auto w-full rounded-xl object-cover">
+                            <p class="capitalize text-xl font-bold mt-2">Jordans 20</p>
+                            <p class="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, odit!</p>
+                            <p class="text-lg mt-2 font-bold text-black">$15.99</p>
+                            <button class="shop mt-4 px-2 py-1 bg-black text-white capitalize rounded-3xl font-bold hover:opacity-50 duration-100" data-name="jordans 20"
+                            data-price="15.99"
+                            data-image="images/blackblue.jpg">shop</button>
+                        </div>
+
+
+                    </div>
+
+                     <button id="prev4" class="ml-8 absolute top-1/2 transform -translate-y-1/2 rounded-full py-2 px-4 shadow-xl text-black bg-white focus:outline-none"><i class="fa-solid fa-arrow-left"></i></button>
+
+                    <button id="next4" class="mr-8 absolute top-1/2 transform -translate-y-1/2 right-0 rounded-full py-2 px-4 shadow-xl text-black bg-white focus:outline-none"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+
+                <!-- jordans -->
+            </div>
+        </section>
+        <!-- PRODUCT-SECTION-END -->
+
+        <section>
+
+        </section>
+
+
+        <!-- ABOUT-US-section-start -->
+        <section id="contact" class="mt-8 py-4">
+            <h1 class="text-center mx-auto text-3xl lg:text-5xl font-bold capitalize">CONNECT WITH US</h1>
+            <div class="max-w-7xl mx-auto flex flex-col lg:flex-row py-16 px-4 lg:px-16 justify-between items-start space-y-12 lg:space-y-0">
+                <div class="lg:w-1/2">
+                    <h2 class="text-xl lg:text-3xl font-bold mb-6 capitalize text-black">company information</h2>
+
+                    <div class="flex items-start gap-4  mb-8 mt-4">
+                        <div>
+                            <i class="fa-solid fa-location-dot text-4xl bg-black text-white px-6 py-4 rounded-full"></i>
+                        </div>
+                        <div class="">
+                            <h3 class="text-xl font-bold text-black capitalize">company address</h3>
+                            <p class="text-gray-600 text-base mt-2"> Lorem ipsum dolor sit <br> amet consectetur adipisicing <br> elit.</p>
+                        </div>
+                    </div>
+
+
+                    <div class="flex items-start gap-4  mb-8 mt-4">
+                        <div>
+                            <i class="fa-solid fa-envelope text-4xl bg-black text-white px-4 py-4 rounded-full"></i>
+                        </div>
+                        <div class="">
+                            <h3 class="text-xl font-bold text-black capitalize">company email</h3>
+                            <p class="text-gray-600 text-base mt-2"> connect56@gmail.com <br> contact75@gmail.com <br> </p>
+                        </div>
+                    </div>
+
+
+                    <div class="flex items-start gap-4 mb-8 mt-4">
+                        <div>
+                            <i class="fa-solid fa-phone text-4xl bg-black text-white px-4 py-4 rounded-full"></i>
+                        </div>
+                        <div class="">
+                            <h3 class="text-xl font-bold text-black capitalize">company phone numbers</h3>
+                            <p class="text-gray-600 text-base mt-2"> +0987654321 <br> +1234567890 <br> +1234098576 </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="lg:w-1/2">
+                    <h2 class="text-xl lg:text-3xl font-bold text-black capitalize mb-6">contact us</h2>
+                    <form id="form" class="space-y-4">
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+
+                            <input type="email" id="email" placeholder="Your Email" class="p-2 border border-gray-500 focus:outline-none rounded-lg focus:ring-2 focus:ring-black placeholder:text-sm" required>
+
+                            <input type="text" id="name"  placeholder="Your Name" class="p-2 border border-gray-400 focus:outline-none focus:ring-2 rounded-lg focus:ring-black placeholder:text-sm" required>
+
+                        </div>
+                        <input type="text" id="subject" placeholder="subject" class="p-2 border border-gray-400 focus:outline-none focus:ring-2 rounded-lg focus:ring-black placeholder:text-sm w-full" required>
+
+                        <textarea placeholder="Your Message" id="message" class="p-2 border border-gray-400 focus:outline-none rounded-lg focus:ring-2 focus:ring-black placeholder:text-sm w-full" required></textarea>
+
+                        <button onclick="" class="px-8 py-2 bg-black text-white font-bold border-2 border-black rounded-lg hover:bg-white hover:text-black duration-200 capitalize" >submit</button>
+                    </form>
+
+                    <div class="mt-6 pt-4">
+                        <button class=""><i class="fa-brands fa-instagram p-4 text-xl bg-black text-white font-bold border-2 border-black rounded-full hover:bg-white hover:text-black duration-200 hover:scale-105"></i></button>
+
+                        <button><i class="fa-brands fa-linkedin p-4 text-xl ml-2 bg-black text-white font-bold border-2 border-black rounded-full hover:bg-white hover:text-black duration-200 hover:scale-105"></i></button>
+
+                        <button><i class="fa-brands fa-facebook p-4 text-xl ml-2 bg-black text-white font-bold border-2 border-black rounded-full hover:bg-white hover:text-black duration-200 hover:scale-105"></i></button>
+
+                        <button><i class="fa-brands fa-pinterest p-4 text-xl ml-2 bg-black text-white font-bold border-2 border-black rounded-full hover:bg-white hover:text-black duration-200 hover:scale-105"></i></button>
+                    </div>
+                </div>
+            </div>            
+        </section>
+         <!-- ABOUT-US-section-end -->
+    </main>
+
+    <footer>
+        <section class="footer bg-teal py-12 bg-black">
+          <div class="container ">
+            <ul class="grid grid-cols-1 items-start gap-5 pb-5 md:grid-cols-2 lg:grid-cols-4">
+              <li>
+                <div class="space-y-3">
+                  <a href="" class="text-4xl text-white font-eduAustralia capitalize font-bold">
+                    cloth<span class="text-secondaryColor">wear</span>
+                  </a>
+  
+                  <p class="text-xs text-white">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                  </p>
+                </div>
+              </li>
+  
+              <li>
+                <div class="flex flex-col gap-3">
+                  <h3 class="text-lg uppercase font-bold font-eduAustralia text-white">SUPPORT</h3>
+                  <a href="" class="text-xs text-white">FAQ's</a>
+                  <a href="" class="text-xs text-white">Privacy Policy</a>
+                  <a href="" class="text-xs text-white">Term & Condition</a>
+                  <a href="" class="text-xs text-white">Contact</a>
+                </div>
+              </li>
+  
+              <li class="space-y-8">
+                <div class="space-y-2">
+                  <h3 class="text-lg text-white uppercase font-eduAustralia font-bold">phone</h3>
+  
+                  <p class="flex items-center gap-2 text-xs text-white">
+                    <i class="fa-solid fa-phone text-lg text-white"></i>
+                    +1 000 000 0000
+                  </p>
+                </div>
+  
+                <div class="space-y-2">
+                  <h3 class="text-lg text-white uppercase font-eduAustralia font-bold">email</h3>
+  
+                  <p class="flex items-center gap-2 text-xs text-white">
+                    <i class="fa-solid fa-envelope text-lg text-white"></i>
+                    flower.info@email.com
+                  </p>
+                </div>
+              </li>
+  
+              <li class="space-y-8">
+                <div class="space-y-2">
+                  <h3 class="text-lg  uppercase font-eduAustralia text-white font-bold">address</h3>
+  
+                  <p class="flex items-center gap-2 text-xs text-white">
+                    <i class="fa-solid fa-location-dot text-lg text-white"></i>
+                    Address goes here
+                  </p>
+                </div>
+  
+                <div class="space-y-2">
+                  <h3 class="text-lg capitalize text-white font-eduAustralia font-bold">follow us</h3>
+  
+                  <div class="space-x-3">
+                    <i class="fa-brands fa-facebook-f text-lg cursor-pointer text-white hover:-translate-y-1 ease-in duration-200"></i>
+                    <i class="fa-brands fa-twitter text-lg cursor-pointer text-white hover:-translate-y-1 ease-in duration-200"></i>
+                    <i class="fa-brands fa-square-instagram text-lg cursor-pointer text-white hover:-translate-y-1 ease-in duration-200"></i>
+                  </div>
+                </div>
+              </li>
+            </ul>
+  
+            <div class="flex flex-col items-center border-t border-pyellow text-white  py-5 md:flex-row md:justify-between">
+              <p class="capitalize">Clothewear Template Kit by Ahbab Sameer</p>
+              <p class="capitalize">Copyright ©️ 2024. All rights reserved.</p>
+            </div>
+          </div>
+        </section>
+      </footer>
+
+
+
+    <script src="https://kit.fontawesome.com/df9783ea42.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "shoe-website",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build":"tailwindcss -i ./style.css -o ./css/main.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "tailwindcss": "^3.4.10"
+  }
+}
